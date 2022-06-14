@@ -1,0 +1,12 @@
+syntax = "proto3";
+package grpcchat;
+
+option go_package = "google.golang.org/grpc-proto;grpc_proto";
+
+service Chat {
+  rpc StreamChat(stream ChatContent) returns (stream ChatContent) {}
+}
+
+message ChatContent {
+  string content = 1;
+}
